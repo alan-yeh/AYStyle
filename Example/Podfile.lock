@@ -1,0 +1,22 @@
+PODS:
+  - AYAspect (1.0.0):
+    - AYRuntime
+  - AYRuntime (1.0.1)
+  - AYStyle (1.0.0):
+    - AYAspect
+
+DEPENDENCIES:
+  - AYStyle (from `../`)
+
+EXTERNAL SOURCES:
+  AYStyle:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AYAspect: 7530804259d1256ebb38305c05220447c4702fdf
+  AYRuntime: c738c601ee1cc553601def6dda83e640ea0fd465
+  AYStyle: c858bee38c45ef6138ba407b24447279359788c5
+
+PODFILE CHECKSUM: 9fa804bd78381f8e6819a9ccb8a1aac08f95deb4
+
+COCOAPODS: 1.0.0

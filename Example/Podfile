@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AYStyle_Example' do
+  pod 'AYStyle', :path => '../'
+
+  target 'AYStyle_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
