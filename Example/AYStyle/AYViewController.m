@@ -7,9 +7,11 @@
 //
 
 #import "AYViewController.h"
+#import <AYStyle/AYStyle.h>
 
-@interface AYViewController ()
-
+@interface AYViewController ()<AYThemeObserver, AYFontObserver>
+@property (weak, nonatomic) IBOutlet UILabel *themeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *themeImage;
 @end
 
 @implementation AYViewController
@@ -20,10 +22,29 @@
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)loadTheme:(AYTheme *)theme{
+    self.themeLabel.textColor = [theme colorForName:@"LabelFontColor"];
+    self.themeImage.image = [theme imageForName:@"theme.png"];
 }
 
+- (void)loadFont:(AYFontCenter *)center{
+    self.themeLabel.font = [center fontWithSize:17];
+}
+
+- (IBAction)applyFontLevel:(UIButton *)sender {
+    [[AYFontCenter center] applyFontLevel:(AYFontLevel)sender.tag];
+}
+
+- (IBAction)applyFont:(UIButton *)sender {
+    [[AYFontCenter center] applyFontName:[sender currentTitle]];
+}
+
+- (IBAction)applyBlueTheme:(id)sender {
+    [[AYThemeCenter center] applyThemeWithName:@"blue"];
+}
+
+
+- (IBAction)applyRedTheme:(id)sender {
+    [[AYThemeCenter center] applyThemeWithName:@"red"];
+}
 @end

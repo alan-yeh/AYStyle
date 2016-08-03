@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D63E0001D51911300E71884 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D63DFFF1D51911300E71884 /* Launch Screen.storyboard */; };
+		1D63E0031D51913C00E71884 /* AYThemeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D63E0021D51913C00E71884 /* AYThemeView.m */; };
+		1D63E00F1D51956800E71884 /* BlueTheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D63E00E1D51956800E71884 /* BlueTheme.plist */; };
+		1D63E0111D51957100E71884 /* RedTheme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1D63E0101D51957100E71884 /* RedTheme.plist */; };
+		1D63E0141D51979000E71884 /* BlueTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D63E0131D51979000E71884 /* BlueTheme.m */; };
+		1D63E0171D5197A000E71884 /* RedTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D63E0161D5197A000E71884 /* RedTheme.m */; };
+		1D63E01E1D519C3100E71884 /* blue_theme.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D63E0181D519C3100E71884 /* blue_theme.png */; };
+		1D63E01F1D519C3100E71884 /* blue_theme@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D63E0191D519C3100E71884 /* blue_theme@2x.png */; };
+		1D63E0201D519C3100E71884 /* blue_theme@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D63E01A1D519C3100E71884 /* blue_theme@3x.png */; };
+		1D63E0211D519C3100E71884 /* red_theme.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D63E01B1D519C3100E71884 /* red_theme.png */; };
+		1D63E0221D519C3100E71884 /* red_theme@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D63E01C1D519C3100E71884 /* red_theme@2x.png */; };
+		1D63E0231D519C3100E71884 /* red_theme@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1D63E01D1D519C3100E71884 /* red_theme@3x.png */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -37,6 +49,21 @@
 
 /* Begin PBXFileReference section */
 		0FE525E85A60487E27DB4360 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		1D63DFFF1D51911300E71884 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		1D63E0011D51913C00E71884 /* AYThemeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AYThemeView.h; path = Views/AYThemeView.h; sourceTree = "<group>"; };
+		1D63E0021D51913C00E71884 /* AYThemeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AYThemeView.m; path = Views/AYThemeView.m; sourceTree = "<group>"; };
+		1D63E00E1D51956800E71884 /* BlueTheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = BlueTheme.plist; path = Themes/BlueTheme.plist; sourceTree = "<group>"; };
+		1D63E0101D51957100E71884 /* RedTheme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RedTheme.plist; sourceTree = "<group>"; };
+		1D63E0121D51979000E71884 /* BlueTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlueTheme.h; path = Themes/BlueTheme.h; sourceTree = "<group>"; };
+		1D63E0131D51979000E71884 /* BlueTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlueTheme.m; path = Themes/BlueTheme.m; sourceTree = "<group>"; };
+		1D63E0151D5197A000E71884 /* RedTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RedTheme.h; path = Themes/RedTheme.h; sourceTree = "<group>"; };
+		1D63E0161D5197A000E71884 /* RedTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RedTheme.m; path = Themes/RedTheme.m; sourceTree = "<group>"; };
+		1D63E0181D519C3100E71884 /* blue_theme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blue_theme.png; path = Images/blue_theme.png; sourceTree = "<group>"; };
+		1D63E0191D519C3100E71884 /* blue_theme@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue_theme@2x.png"; path = "Images/blue_theme@2x.png"; sourceTree = "<group>"; };
+		1D63E01A1D519C3100E71884 /* blue_theme@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blue_theme@3x.png"; path = "Images/blue_theme@3x.png"; sourceTree = "<group>"; };
+		1D63E01B1D519C3100E71884 /* red_theme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red_theme.png; path = Images/red_theme.png; sourceTree = "<group>"; };
+		1D63E01C1D519C3100E71884 /* red_theme@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red_theme@2x.png"; path = "Images/red_theme@2x.png"; sourceTree = "<group>"; };
+		1D63E01D1D519C3100E71884 /* red_theme@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "red_theme@3x.png"; path = "Images/red_theme@3x.png"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* AYStyle_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AYStyle_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -93,15 +120,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D63DFFE1D5190D900E71884 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1D63E0011D51913C00E71884 /* AYThemeView.h */,
+				1D63E0021D51913C00E71884 /* AYThemeView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		1D63E0041D5193A100E71884 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1D63E0181D519C3100E71884 /* blue_theme.png */,
+				1D63E0191D519C3100E71884 /* blue_theme@2x.png */,
+				1D63E01A1D519C3100E71884 /* blue_theme@3x.png */,
+				1D63E01B1D519C3100E71884 /* red_theme.png */,
+				1D63E01C1D519C3100E71884 /* red_theme@2x.png */,
+				1D63E01D1D519C3100E71884 /* red_theme@3x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		1D63E00D1D51953000E71884 /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				1D63E00E1D51956800E71884 /* BlueTheme.plist */,
+				1D63E0101D51957100E71884 /* RedTheme.plist */,
+				1D63E0121D51979000E71884 /* BlueTheme.h */,
+				1D63E0131D51979000E71884 /* BlueTheme.m */,
+				1D63E0151D5197A000E71884 /* RedTheme.h */,
+				1D63E0161D5197A000E71884 /* RedTheme.m */,
+			);
+			name = Themes;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
-				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for AYStyle */,
-				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
-				6003F58B195388D20070C39A /* Products */,
 				AF61BC491A788508E94C34CC /* Pods */,
+				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
+				6003F58B195388D20070C39A /* Products */,
+				6003F5B5195388D20070C39A /* Tests */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,11 +194,15 @@
 			children = (
 				6003F59C195388D20070C39A /* AYAppDelegate.h */,
 				6003F59D195388D20070C39A /* AYAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* AYViewController.h */,
 				6003F5A6195388D20070C39A /* AYViewController.m */,
+				1D63E0041D5193A100E71884 /* Images */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
+				1D63DFFF1D51911300E71884 /* Launch Screen.storyboard */,
+				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				1D63E00D1D51953000E71884 /* Themes */,
+				1D63DFFE1D5190D900E71884 /* Views */,
 			);
 			name = "Example for AYStyle";
 			path = AYStyle;
@@ -200,12 +266,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "AYStyle_Example" */;
 			buildPhases = (
-				5E451DFEE40137AA2DD79A2D /* 📦 Check Pods Manifest.lock */,
+				5E451DFEE40137AA2DD79A2D /* [CP] Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				90A1CF52F7D1CF041EFBECA5 /* 📦 Embed Pods Frameworks */,
-				10594A92738F39C6140EF14E /* 📦 Copy Pods Resources */,
+				90A1CF52F7D1CF041EFBECA5 /* [CP] Embed Pods Frameworks */,
+				10594A92738F39C6140EF14E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -220,12 +286,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "AYStyle_Tests" */;
 			buildPhases = (
-				8254B00FBB9C9DF62B5B7173 /* 📦 Check Pods Manifest.lock */,
+				8254B00FBB9C9DF62B5B7173 /* [CP] Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				98442D8B42E2DF7BD26886D2 /* 📦 Embed Pods Frameworks */,
-				95A0851516262B23DAF2D629 /* 📦 Copy Pods Resources */,
+				98442D8B42E2DF7BD26886D2 /* [CP] Embed Pods Frameworks */,
+				95A0851516262B23DAF2D629 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,9 +342,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D63E01F1D519C3100E71884 /* blue_theme@2x.png in Resources */,
+				1D63E0211D519C3100E71884 /* red_theme.png in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				1D63E0201D519C3100E71884 /* blue_theme@3x.png in Resources */,
+				1D63E0221D519C3100E71884 /* red_theme@2x.png in Resources */,
+				1D63E00F1D51956800E71884 /* BlueTheme.plist in Resources */,
+				1D63E0111D51957100E71884 /* RedTheme.plist in Resources */,
+				1D63E01E1D519C3100E71884 /* blue_theme.png in Resources */,
+				1D63E0001D51911300E71884 /* Launch Screen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				1D63E0231D519C3100E71884 /* red_theme@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +368,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		10594A92738F39C6140EF14E /* 📦 Copy Pods Resources */ = {
+		10594A92738F39C6140EF14E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,44 +383,44 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AYStyle_Example/Pods-AYStyle_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5E451DFEE40137AA2DD79A2D /* 📦 Check Pods Manifest.lock */ = {
+		5E451DFEE40137AA2DD79A2D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		8254B00FBB9C9DF62B5B7173 /* 📦 Check Pods Manifest.lock */ = {
+		8254B00FBB9C9DF62B5B7173 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		90A1CF52F7D1CF041EFBECA5 /* 📦 Embed Pods Frameworks */ = {
+		90A1CF52F7D1CF041EFBECA5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,14 +428,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AYStyle_Example/Pods-AYStyle_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		95A0851516262B23DAF2D629 /* 📦 Copy Pods Resources */ = {
+		95A0851516262B23DAF2D629 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,14 +443,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AYStyle_Tests/Pods-AYStyle_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		98442D8B42E2DF7BD26886D2 /* 📦 Embed Pods Frameworks */ = {
+		98442D8B42E2DF7BD26886D2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,7 +465,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D63E0031D51913C00E71884 /* AYThemeView.m in Sources */,
+				1D63E0141D51979000E71884 /* BlueTheme.m in Sources */,
 				6003F59E195388D20070C39A /* AYAppDelegate.m in Sources */,
+				1D63E0171D5197A000E71884 /* RedTheme.m in Sources */,
 				6003F5A7195388D20070C39A /* AYViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

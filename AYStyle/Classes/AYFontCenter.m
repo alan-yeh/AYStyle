@@ -9,40 +9,40 @@
 #import "AYFontCenter.h"
 #import <AYAspect/AYAspect.h>
 
-static NSString *PSFontCenterCurrentFontNameKey = @"PS_FONT_CENTER_CURRENT_FONTNAME_KEY";
-static NSString *PSFontCenterCurrentFontLevelKey = @"PS_FONT_CENTER_CURRENT_FONTLEVEL_KEY";
+static NSString *AYCurrentFontNameKey = @"AYCurrentFontNameKey";
+static NSString *AYCurrentFontLevelKey = @"AYCurrentFontLevelKey";
 
-@implementation PSFontCenter{
+@implementation AYFontCenter{
     NSString *_currentFontName;
-    PSFontLevel _currentLevel;
+    AYFontLevel _currentLevel;
     NSHashTable *_observers;
 }
-- (NSInteger)increasementForLevel:(PSFontLevel)level{
-    if (level == PSFontLevelSystem) {
+- (NSInteger)increasementForLevel:(AYFontLevel)level{
+    if (level == AYFontLevelSystem) {
         NSString *contentSize = [UIApplication sharedApplication].preferredContentSizeCategory;
         if (contentSize == UIContentSizeCategoryExtraSmall || contentSize == UIContentSizeCategorySmall) {
-            level = PSFontLevelSmall;
+            level = AYFontLevelSmall;
         }else if (contentSize == UIContentSizeCategoryMedium){
-            level = PSFontLevelMedium;
+            level = AYFontLevelMedium;
         }else if (contentSize == UIContentSizeCategoryLarge){
-            level = PSFontLevelLarge;
+            level = AYFontLevelLarge;
         }else if (contentSize == UIContentSizeCategoryExtraLarge){
-            level = PSFontLevelExtralLarge;
+            level = AYFontLevelExtralLarge;
         }else{
-            level = PSFontLevelExtralExtralLarge;
+            level = AYFontLevelExtralExtralLarge;
         }
     }
     
     switch (level) {
-        case PSFontLevelSmall:
+        case AYFontLevelSmall:
             return -2;
-        case PSFontLevelMedium:
+        case AYFontLevelMedium:
             return 0;
-        case PSFontLevelLarge:
+        case AYFontLevelLarge:
             return 2;
-        case PSFontLevelExtralLarge:
+        case AYFontLevelExtralLarge:
             return 4;
-        case PSFontLevelExtralExtralLarge:
+        case AYFontLevelExtralExtralLarge:
             return 8;
         default:
             return 0;
@@ -57,32 +57,32 @@ static NSString *PSFontCenterCurrentFontLevelKey = @"PS_FONT_CENTER_CURRENT_FONT
 }
 
 + (instancetype)center{
-    static PSFontCenter *instance;
+    static AYFontCenter *instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[PSFontCenter alloc] _init];
+        instance = [[AYFontCenter alloc] _init];
     });
     return instance;
 }
 
 - (NSString *)currentFontName{
     return _currentFontName ?: ({
-        _currentFontName = [[NSUserDefaults standardUserDefaults] objectForKey:PSFontCenterCurrentFontNameKey];
+        _currentFontName = [[NSUserDefaults standardUserDefaults] objectForKey:AYCurrentFontNameKey];
         if (_currentFontName.length < 1) {
             _currentFontName = [[UIFont systemFontOfSize:10] fontName];
-            [[NSUserDefaults standardUserDefaults] setObject:_currentFontName forKey:PSFontCenterCurrentFontNameKey];
+            [[NSUserDefaults standardUserDefaults] setObject:_currentFontName forKey:AYCurrentFontNameKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
         _currentFontName;
     });
 }
 
-- (PSFontLevel)currentFontLevel{
+- (AYFontLevel)currentFontLevel{
     return _currentLevel ?: ({
-        NSNumber *currentLevel = [[NSUserDefaults standardUserDefaults] objectForKey:PSFontCenterCurrentFontLevelKey];
+        NSNumber *currentLevel = [[NSUserDefaults standardUserDefaults] objectForKey:AYCurrentFontLevelKey];
         if (currentLevel == nil) {
-            currentLevel = @(PSFontLevelSystem);
-            [[NSUserDefaults standardUserDefaults] setObject:currentLevel forKey:PSFontCenterCurrentFontLevelKey];
+            currentLevel = @(AYFontLevelSystem);
+            [[NSUserDefaults standardUserDefaults] setObject:currentLevel forKey:AYCurrentFontLevelKey];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
         currentLevel.integerValue;
@@ -90,40 +90,40 @@ static NSString *PSFontCenterCurrentFontLevelKey = @"PS_FONT_CENTER_CURRENT_FONT
 }
 
 #pragma mark - 全局调整字体
-- (void)changeFontName:(NSString *)fontName{
+- (void)applyFontName:(NSString *)fontName{
     NSParameterAssert(fontName != nil && fontName.length > 0);
     _currentFontName = [fontName copy];
-    [[NSUserDefaults standardUserDefaults] setObject:_currentFontName forKey:PSFontCenterCurrentFontNameKey];
+    [[NSUserDefaults standardUserDefaults] setObject:_currentFontName forKey:AYCurrentFontNameKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     dispatch_async(dispatch_get_main_queue(), ^{
-        for (id<PSFontObserver> observer in _observers) {
+        for (id<AYFontObserver> observer in _observers) {
             [observer loadFont:self];
         }
     });
 }
 
-- (void)changeFontLevel:(PSFontLevel)newLevel{
+- (void)applyFontLevel:(AYFontLevel)newLevel{
     _currentLevel = newLevel;
-    [[NSUserDefaults standardUserDefaults] setObject:@(newLevel) forKey:PSFontCenterCurrentFontLevelKey];
+    [[NSUserDefaults standardUserDefaults] setObject:@(newLevel) forKey:AYCurrentFontLevelKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        for (id<PSFontObserver> observer in _observers) {
+        for (id<AYFontObserver> observer in _observers) {
             [observer loadFont:self];
         }
     });
 }
 
-- (void)changeFontLevel:(PSFontLevel)newLevel withFontName:(NSString *)fontName{
+- (void)applyFontLevel:(AYFontLevel)newLevel withFontName:(NSString *)fontName{
     NSParameterAssert(fontName != nil && fontName.length > 0);
     _currentLevel = newLevel;
     _currentFontName = [fontName copy];
-    [[NSUserDefaults standardUserDefaults] setObject:@(newLevel) forKey:PSFontCenterCurrentFontLevelKey];
-    [[NSUserDefaults standardUserDefaults] setObject:_currentFontName forKey:PSFontCenterCurrentFontNameKey];
+    [[NSUserDefaults standardUserDefaults] setObject:@(newLevel) forKey:AYCurrentFontLevelKey];
+    [[NSUserDefaults standardUserDefaults] setObject:_currentFontName forKey:AYCurrentFontNameKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        for (id<PSFontObserver> observer in _observers) {
+        for (id<AYFontObserver> observer in _observers) {
             [observer loadFont:self];
         }
     });
@@ -143,11 +143,11 @@ static NSString *PSFontCenterCurrentFontLevelKey = @"PS_FONT_CENTER_CURRENT_FONT
 }
 
 #pragma mark - 注册与应用主题
-- (void)registerObserver:(id<PSFontObserver>)observer{
+- (void)registerObserver:(id<AYFontObserver>)observer{
     [_observers addObject:observer];
 }
 
-- (void)applyThemeToObserver:(id<PSFontObserver>)observer{
+- (void)applyToObserver:(id<AYFontObserver>)observer{
     [observer loadFont:self];
 }
 
@@ -156,11 +156,11 @@ static NSString *PSFontCenterCurrentFontLevelKey = @"PS_FONT_CENTER_CURRENT_FONT
     [AYAspect interceptSelector:registeSEL
                         inClass:aClass
                 withInterceptor:AYInterceptorMake(^(NSInvocation *invocation) {
-        if ([invocation.target conformsToProtocol:@protocol(PSFontObserver)]) {
+        if ([invocation.target conformsToProtocol:@protocol(AYFontObserver)]) {
             if (self.showLog) {
-                NSLog(@"🅰️🅰️PSFontCenter: Auto register instance: <%@ %p>\n", [invocation.target class], invocation.target);
+                NSLog(@"🅰️🅰️AYFontCenter: Auto register instance: <%@ %p>\n", [invocation.target class], invocation.target);
             }
-            [[PSFontCenter center] registerObserver:invocation.target];
+            [[AYFontCenter center] registerObserver:invocation.target];
         }
         [invocation invoke];
     })];
@@ -169,8 +169,8 @@ static NSString *PSFontCenterCurrentFontLevelKey = @"PS_FONT_CENTER_CURRENT_FONT
     [AYAspect interceptSelector:applySEL
                         inClass:aClass
                 withInterceptor:AYInterceptorMake(^(NSInvocation *invocation) {
-        if ([invocation.target conformsToProtocol:@protocol(PSFontObserver)]) {
-            [invocation.target loadFont:[PSFontCenter center]];
+        if ([invocation.target conformsToProtocol:@protocol(AYFontObserver)]) {
+            [invocation.target loadFont:[AYFontCenter center]];
         }
         [invocation invoke];
     })];
