@@ -20,10 +20,10 @@ pod "AYStyle"
 ---
 　　AYThemeCenter是主题管理中心，主要用于管理User Interface中的图片、颜色等。AYThemeCenter使用起来非常简单，同时它实现了图片的缓存管理，减少重复载入、内存占用等。
 
-　　那么接下来，演示如何从0开始实现一个主题管理中心。主题主题，那么首先应该创建主题。创建主题需要继承`PSTheme`。
+　　那么接下来，演示如何从0开始实现一个主题管理中心。主题主题，那么首先应该创建主题。创建主题需要继承`AYTheme`。
 
 ```objective-c
-@interface PSTheme : NSObject
+@interface AYTheme : NSObject
 - (UIColor *)colorForName:(NSString *)colorName;
 - (UIImage *)imageForName:(NSString *)imageName;
 - (void)imageForName:(NSString *)imageName asyncCallback:(void (^)(UIImage *image))callback;
@@ -34,13 +34,13 @@ pod "AYStyle"
 - (NSBundle *)imageBundle;/**< 图片存在的位置, 默认为mainBundle */
 @end
 ```
-　　PSTheme是一个抽像类，里面已经默认实现了前三个方法和用于缓存之类的方法。需要开发者实现下面三个方法，返回主题需要的一些基本信息。
+　　AYTheme是一个抽像类，里面已经默认实现了前三个方法和用于缓存之类的方法。需要开发者实现下面三个方法，返回主题需要的一些基本信息。
 
 　　BlueTheme是一个蓝色主题，它有以下实现。
 
 ```objective-c
-#import <PSExtensions/PSExtensions.h>
-@interface BlueTheme : PSTheme
+#import <AYExtensions/AYExtensions.h>
+@interface BlueTheme : AYTheme
 @end
 
 @implementation BlueTheme
@@ -53,7 +53,7 @@ pod "AYStyle"
              };
     
     //此方法也可以返回Documents下的主题资源，方便从服务器上下载主题资源包
-//    return [NSDictionary dictionaryWithContentsOfFile:[[[PSFile documents] child:@"ThemesResources"] child:@"BlueColorDic.plist"].path];
+//    return [NSDictionary dictionaryWithContentsOfFile:[[[AYFile documents] child:@"ThemesResources"] child:@"BlueColorDic.plist"].path];
 }
 
 /** 主题图片名字（不实现的话，默认返回原来的名字） */
@@ -65,7 +65,7 @@ pod "AYStyle"
 /** 主题图片所在的位置（不实现的话，默认是mainBundle） */
 - (NSBundle *)imageBundle{
     //可以返回Documents下的主题资源，方便从服务器上下载主题资源包
-    return [NSBundle bundleWithPath:[[[PSFile documents] child:@"ThemesResources"] child:@"Blue"].path];
+    return [NSBundle bundleWithPath:[[[AYFile documents] child:@"ThemesResources"] child:@"Blue"].path];
 }
 @end
 ```
@@ -93,7 +93,7 @@ pod "AYStyle"
 　　AYThemeCenter方便之处，在于它可以`自动`将符合条件的对象注册进主题中心，并在用户觉得适当的时候，应用主题方法。
 
 ```objective-c
-    //将项目中，所有UIViewController及其子类（实现了PSThemeObserver协议）自动注册进主题中心
+    //将项目中，所有UIViewController及其子类（实现了AYThemeObserver协议）自动注册进主题中心
     //在执行-[UIViewController viewDidLoad]方法之前，将该对象注册进主题中心
     //在执行-[UIViewController viewDidLayoutSubviews]之前，执行应用主题方法
     [[AYThemeCenter center] autoRegisterClass:[UIViewController class] beforeExecuting:@selector(viewDidLoad) applyBeforeExecuting:@selector(viewDidLayoutSubviews)];
@@ -101,12 +101,12 @@ pod "AYStyle"
 　　ViewController中需要做的，就只是实现主题观察者协议就足够了。
 
 ```objective-c
-@interface ViewController ()<PSThemeObserver>
+@interface ViewController ()<AYThemeObserver>
 @end
 
 @implementation ViewController
 /** 当主题变更时，或者在执行viewDidLayoutSubviews（用户在上面指定）之前，此方法自动执行，无需用户手动调取 */
-- (void)loadTheme:(PSTheme *)theme{
+- (void)loadTheme:(AYTheme *)theme{
     self.logoView.image = [theme imageForName:@"logo.png"];
     self.backgroundColor = [theme colorForName:@"ViewControllerBackgroundColor"];
     self.titleLabel.textColor = [theme colorForName:@"TitleColor"];
@@ -138,7 +138,7 @@ pod "AYStyle"
 ```
 
 ```objective-c
-    //将项目中，所有UIViewController及其子类（实现了PSFontObserver协议）自动注册进字体中心
+    //将项目中，所有UIViewController及其子类（实现了AYFontObserver协议）自动注册进字体中心
     //在执行-[UIViewController viewDidLoad]方法之前，将该对象注册进主题主心
     //在执行-[UIViewController viewDidLayoutSubviews]之前，执行应用主题方法
     [[AYFontCenter center] autoRegisterClass:[UIViewController class] beforeExecuting:@selector(viewDidLoad) applybeforeExecuting:@selector(viewDidLayoutSubviews)];
@@ -146,7 +146,7 @@ pod "AYStyle"
 　　实现字体观察者方法。
 
 ```objective-c
-@interface ViewController ()<PSFontObserver>
+@interface ViewController ()<AYFontObserver>
 @end
 
 @implementation ViewController
@@ -163,9 +163,9 @@ pod "AYStyle"
     //单纯更新字体
     [[AYFontCenter center] applyFontName:@"Courier-Bold"];
     //单线更新字体大小
-    [[AYFontCenter center] applyFontLevel:PSFontLevelExtralLarge];
+    [[AYFontCenter center] applyFontLevel:AYFontLevelExtralLarge];
     //同时更新字体及字体大小
-    [[AYFontCenter center] applyFontLevel:PSFontLevelSmall withFontName:@"Helvetica"]; 
+    [[AYFontCenter center] applyFontLevel:AYFontLevelSmall withFontName:@"Helvetica"]; 
 ```
 
 ## License
